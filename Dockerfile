@@ -1,8 +1,23 @@
 FROM debian:latest
 
-RUN apt update && apt upgrade -y
-RUN apt install git python3-pip -y
-RUN git clone https://github.com/krishd9895/MegaUploaderbot
+# Update package lists and upgrade existing packages
+RUN apt-get update && apt-get upgrade -y
+
+# Install necessary packages
+RUN apt-get install -y \
+    git \
+    python3 \
+    python3-pip \
+    curl  # Adding curl for debugging network connectivity
+
+# Clone the repository
+RUN git clone https://github.com/krishd9895/MegaUploaderbot /MegaUploaderbot
 WORKDIR /MegaUploaderbot
-RUN pip3 install -U -r requirements.txt
-CMD python3 bot.py
+
+# Install Python dependencies
+COPY requirements.txt requirements.txt
+RUN python3 -m pip install --upgrade pip \
+    && python3 -m pip install -r requirements.txt
+
+# Set the command to run your application
+CMD ["python3", "bot.py"]
