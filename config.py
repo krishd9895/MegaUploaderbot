@@ -11,7 +11,7 @@ class Config(object):
     
     API_HASH = environ.get("API_HASH", "") # Get this value from https://my.telegram.org/apps
     
-    OWNER_ID = int(environ.get("OWNER_ID", None)) # Your(owner's) telegram id
+    OWNER_ID = int(environ.get("OWNER_ID","")) # Your(owner's) telegram id
     
     MONGO_STR = environ.get("MONGO_STR", "") # Get from MongoDB Atlas
 
