@@ -7,10 +7,10 @@ pathlib==1.0.1
 pyaes==1.6.1
 pycryptodome==3.12.0
 pymongo==4.0.1
-Pyrogram==1.2.20
-pySmartDL==1.3.4
-PySocks==1.7.1
-requests==2.26.0
+Pyrogram
+pySmartDL
+PySocks
+requests
 tenacity==8.0.1
-TgCrypto==1.2.2
-urllib3==1.26.7
+TgCrypto
+urllib3
