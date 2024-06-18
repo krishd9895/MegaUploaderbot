@@ -12,14 +12,22 @@ async def start_help_handler(
     bot : Update,
     msg : Message
     ):
-    if await search_user_in_community(bot, msg):
-        if msg.text == "/start":
-            textMsg = f"<b>Hi, I am MegaUploaderBot🤖 Created by @AJPyroVerse and My Developer🧑‍💻 is @AJTimePyro.</b>\n\nAnd I support:-\n1. <u>Direct Downloading Link</u>\n2.<u>Telegram File</u>\n3. <u>Youtube URL</u>\n\n\n{to_login}\n😊We will store your login detail on our database.{common_text}"
-        else:
-            textMsg = f"{to_login}\n<b>After login😊 send Direct Downloading Link, Youtube URL or any Telegram File.\n\nTo remove your account from Database use /revoke.</b>{common_text}"
-        await msg.reply_text(
-            textMsg,
-            parse_mode = "html"
+    if msg.text == "/start":
+        text_msg = (
+            "<b>Hi, I am MegaUploaderBot🤖 Created and My Developer🧑‍💻 .</b>\n\n"
+            "And I support:-\n"
+            "1. <u>Direct Downloading Link</u>\n"
+            "2. <u>Telegram File</u>\n"
+            "3. <u>Youtube URL</u>\n\n\n"
+            f"{to_login}\n"
+            "😊We will store your login detail on our database."
         )
-    return
+    else:
+        text_msg = (
+            f"{to_login}\n"
+            "<b>After login😊 send Direct Downloading Link, Youtube URL or any Telegram File.\n\n"
+            "To remove your account from Database use /revoke.</b>"
+        )
+
+    await msg.reply_text(text_msg)
 
